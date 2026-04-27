@@ -128,7 +128,7 @@ export function Header() {
               key="mobile-menu"
               initial={{ y: -12, scale: 0.97 }}
               animate={{ y: 0, scale: 1, transition: { type: "spring", stiffness: 260, damping: 25 } }}
-              exit={{ opacity: 0, y: -6, scale: 0.98, transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] } }}
+              exit={{ opacity: 0, filter: "blur(12px)", scale: 0.97, transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] } }}
               className="absolute top-20 left-4 right-4 z-50"
               onClick={(e) => e.stopPropagation()}
             >
