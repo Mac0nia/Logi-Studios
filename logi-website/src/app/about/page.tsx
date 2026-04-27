@@ -6,9 +6,9 @@ import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 export const metadata: Metadata = {
-  title: "About — Gianluca Galli, East London Web Designer",
+  title: "About — Gianluca & Lorenzo, East London Web Designers",
   description:
-    "Gianluca Galli — East London web designer. Why I started Logi Studios and why I build sites free for tradespeople.",
+    "Gianluca Galli and Lorenzo — East London web designers behind Logi Studios. Why we build sites free for tradespeople and only charge when you're happy.",
   alternates: { canonical: "https://logistudios.co.uk/about" },
   openGraph: { url: "https://logistudios.co.uk/about" },
 }
@@ -36,7 +36,7 @@ export default function AboutPage() {
               letterSpacing: "-0.015em",
             }}
           >
-            I'm Gianluca. I build websites for East London tradespeople.
+            We're Gianluca & Lorenzo. We build websites for East London tradespeople.
           </h1>
         </FadeUp>
 
@@ -55,11 +55,11 @@ export default function AboutPage() {
                   fontWeight: 600,
                 }}
               >
-                Why I started Logi Studios
+                Why we started Logi Studios
               </h2>
               <div className="flex flex-col gap-4 text-base text-[--ls-text-secondary] leading-relaxed">
                 <p>
-                  I got fed up watching good tradespeople lose jobs to
+                  We got fed up watching good tradespeople lose jobs to
                   competitors with worse work but shinier websites. A plumber
                   who&apos;s been in Hackney for twenty years, doing honest work —
                   he shouldn&apos;t be losing boiler installs to someone who spent
@@ -72,7 +72,7 @@ export default function AboutPage() {
                   nothing. So they stopped trusting the whole thing.
                 </p>
                 <p>
-                  The &quot;free build&quot; model is my answer to that. You see the
+                  The &quot;free build&quot; model is our answer to that. You see the
                   finished site before any money changes hands. If it doesn&apos;t
                   feel right, you walk away. No invoice, no hard feelings. That&apos;s
                   the only way to do this fairly.
@@ -133,8 +133,8 @@ export default function AboutPage() {
               </h2>
               <div className="flex flex-col gap-4 text-base text-[--ls-text-secondary] leading-relaxed">
                 <p>
-                  Because I live here. Hackney, Tower Hamlets, Newham,
-                  Waltham Forest — I know these boroughs. I know the trade
+                  Because we live here. Hackney, Tower Hamlets, Newham,
+                  Waltham Forest — we know these boroughs. We know the trade
                   networks, the local directories, the search terms people
                   actually type at 7am when a pipe&apos;s burst.
                 </p>
@@ -149,21 +149,21 @@ export default function AboutPage() {
 
           </StaggerContainer>
 
-          {/* Founder photo */}
-          <FadeUp delay={0.2} className="lg:sticky lg:top-28 lg:self-start">
+          {/* Founder photos */}
+          <FadeUp delay={0.2} className="flex flex-col gap-5 lg:self-start">
+
+            {/* Gianluca */}
             <div className="rounded-2xl border border-[--ls-border] overflow-hidden aspect-[3/4] relative flex items-end p-6">
               <Image
                 src="/gianluca.jpg"
-                alt="Gianluca Galli — founder of Logi Studios, East London"
+                alt="Gianluca Galli — co-founder of Logi Studios, East London"
                 fill
                 className="object-cover object-top"
                 sizes="(max-width: 1024px) 100vw, 360px"
                 priority
               />
-              {/* Name overlay */}
               <div
                 className="relative z-10 w-full rounded-xl p-4"
-                style={{ background: "linear-gradient(to top, rgba(10,10,11,0.85) 0%, transparent 100%)" }}
               >
                 <p
                   className="text-[--ls-text-primary] font-semibold"
@@ -172,10 +172,35 @@ export default function AboutPage() {
                   Gianluca Galli
                 </p>
                 <p className="text-sm text-[--ls-text-muted]">
-                  Founder · East London
+                  Co-founder · East London
                 </p>
               </div>
             </div>
+
+            {/* Lorenzo */}
+            <div className="rounded-2xl border border-[--ls-border] overflow-hidden aspect-[3/4] relative flex items-end p-6">
+              <Image
+                src="/lorenzo.jpg"
+                alt="Lorenzo — co-founder of Logi Studios, East London"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 1024px) 100vw, 360px"
+              />
+              <div
+                className="relative z-10 w-full rounded-xl p-4"
+              >
+                <p
+                  className="text-[--ls-text-primary] font-semibold"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  Lorenzo
+                </p>
+                <p className="text-sm text-[--ls-text-muted]">
+                  Co-founder · East London
+                </p>
+              </div>
+            </div>
+
           </FadeUp>
 
         </div>
@@ -198,7 +223,7 @@ export default function AboutPage() {
                 Want to work together?
               </h2>
               <p className="text-sm text-[--ls-text-secondary]">
-                Free 15-minute call. No commitment. Just a chat about your business.
+                Free 15-minute call. No commitment. Just a chat about your business. Both of us available.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
@@ -214,7 +239,7 @@ export default function AboutPage() {
                 rel="noopener noreferrer"
                 className={cn(buttonVariants({ variant: "whatsapp", size: "lg" }), "justify-center")}
               >
-                WhatsApp me
+                WhatsApp us
               </a>
             </div>
           </div>
