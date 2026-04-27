@@ -8,7 +8,7 @@ import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 // TODO (Step 9): Replace with real Cal.com link
-const CALENDAR_LINK = "#[CALENDAR_LINK]"
+const CALENDAR_LINK = "https://cal.eu/logistudios"
 const WHATSAPP_URL = "https://wa.me/447578930408"
 
 const STEPS = [

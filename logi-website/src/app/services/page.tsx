@@ -63,7 +63,7 @@ const FAQS = [
   },
 ]
 
-const CALENDAR_LINK = "#[CALENDAR_LINK]"
+const CALENDAR_LINK = "https://cal.eu/logistudios"
 const WHATSAPP_URL = "https://wa.me/447578930408"
 
 export default function ServicesPage() {

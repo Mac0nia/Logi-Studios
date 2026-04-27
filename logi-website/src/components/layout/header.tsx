@@ -46,8 +46,8 @@ export function Header() {
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          scrolled
-            ? "border-b border-[--ls-border] bg-[--ls-bg-primary]/90 backdrop-blur-md"
+          scrolled || menuOpen
+            ? "border-b border-[--ls-border] bg-[--ls-bg-primary]/95 backdrop-blur-md"
             : "bg-transparent"
         )}
       >
@@ -119,57 +119,85 @@ export function Header() {
         </div>
       </header>
 
-      {/* Mobile menu overlay */}
+      {/* Mobile floating dock menu */}
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
-            key="mobile-menu"
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 top-16 z-40 bg-[--ls-bg-primary] flex flex-col md:hidden"
-          >
-            <nav
-              className="flex flex-col gap-1 p-4"
-              aria-label="Mobile navigation"
+          <>
+            {/* Backdrop blur overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm md:hidden"
+              onClick={() => setMenuOpen(false)}
+            />
+            {/* Floating dock */}
+            <motion.div
+              key="mobile-menu"
+              initial={{ opacity: 0, y: -16, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -16, scale: 0.95 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              className="fixed top-20 left-4 right-4 z-50 md:hidden"
             >
-              {NAV_LINKS.map(({ href, label }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className={cn(
-                    "px-4 py-3.5 rounded-xl text-base font-medium transition-colors",
-                    pathname === href || pathname.startsWith(href + "/")
-                      ? "bg-[--ls-bg-tertiary] text-[--ls-text-primary]"
-                      : "text-[--ls-text-secondary] hover:bg-[--ls-bg-tertiary] hover:text-[--ls-text-primary]"
-                  )}
+              <div className="mx-auto max-w-sm bg-[--ls-bg-secondary]/95 backdrop-blur-xl border border-[--ls-border] rounded-3xl shadow-2xl shadow-black/50 overflow-hidden">
+                <nav
+                  className="flex flex-col p-2"
+                  aria-label="Mobile navigation"
                 >
-                  {label}
-                </Link>
-              ))}
-            </nav>
+                  {NAV_LINKS.map(({ href, label }, index) => (
+                    <motion.div
+                      key={href}
+                      initial={{ opacity: 0, x: -8 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05, duration: 0.2 }}
+                    >
+                      <Link
+                        href={href}
+                        className={cn(
+                          "flex items-center justify-between px-4 py-3 rounded-2xl text-base font-medium transition-all duration-200",
+                          pathname === href || pathname.startsWith(href + "/")
+                            ? "bg-[--ls-accent]/15 text-[--ls-accent]"
+                            : "text-[--ls-text-secondary] hover:bg-[--ls-bg-tertiary] hover:text-[--ls-text-primary]"
+                        )}
+                      >
+                        {label}
+                        {pathname === href || pathname.startsWith(href + "/") ? (
+                          <span className="w-1.5 h-1.5 rounded-full bg-[--ls-accent]" />
+                        ) : null}
+                      </Link>
+                    </motion.div>
+                  ))}
+                </nav>
 
-            {/* Mobile contact actions */}
-            <div className="mt-auto p-6 border-t border-[--ls-border] flex flex-col gap-3">
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(buttonVariants({ variant: "whatsapp", size: "lg" }), "w-full justify-center")}
-              >
-                <MessageCircle className="size-4" />
-                WhatsApp us now
-              </a>
-              <a
-                href={PHONE_TEL}
-                className="flex items-center justify-center gap-2 text-sm text-[--ls-text-secondary] hover:text-[--ls-text-primary] transition-colors py-2"
-              >
-                <Phone className="size-4" />
-                {PHONE_DISPLAY}
-              </a>
-            </div>
-          </motion.div>
+                {/* Contact actions */}
+                <div className="p-3 pt-0">
+                  <div className="flex gap-2">
+                    <a
+                      href={WHATSAPP_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={cn(
+                        buttonVariants({ variant: "whatsapp", size: "sm" }),
+                        "flex-1 justify-center"
+                      )}
+                    >
+                      <MessageCircle className="size-4" />
+                      WhatsApp
+                    </a>
+                    <a
+                      href={PHONE_TEL}
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-[--ls-bg-tertiary] text-[--ls-text-secondary] hover:text-[--ls-text-primary] transition-colors text-sm font-medium"
+                    >
+                      <Phone className="size-4" />
+                      Call
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>

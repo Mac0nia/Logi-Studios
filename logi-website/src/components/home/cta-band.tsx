@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 
 const WHATSAPP_URL = "https://wa.me/447578930408?text=Hi%2C%20I%27d%20like%20to%20find%20out%20about%20getting%20a%20website%20built."
 // TODO: replace with your Cal.com/Calendly booking link before launch
-const CALENDAR_LINK = "#[CALENDAR_LINK]"
+const CALENDAR_LINK = "https://cal.eu/logistudios"
 
 export function CTABand() {
   return (

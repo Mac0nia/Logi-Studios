@@ -12,7 +12,7 @@
  */
 
 const IS_PLACEHOLDER = (link: string) =>
-  !link || link.includes("[CALENDAR_LINK]") || link === "#[CALENDAR_LINK]"
+  !link || link.includes("[CALENDAR_LINK]")
 
 export function CalEmbed({ calLink }: { calLink: string }) {
   if (IS_PLACEHOLDER(calLink)) {

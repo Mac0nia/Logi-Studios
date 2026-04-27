@@ -166,7 +166,7 @@ Once you have your Cal.com link, do a search-and-replace across the codebase:
 
 ```bash
 # Find the 5 files with hardcoded #[CALENDAR_LINK]
-grep -rn '"#\[CALENDAR_LINK\]"' src/
+grep -rn 'https://cal.eu/logistudios' src/
 ```
 
 Replace each `"#[CALENDAR_LINK]"` with `process.env.NEXT_PUBLIC_CALENDAR_LINK ?? "#[CALENDAR_LINK]"`,

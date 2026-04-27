@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 }
 
 const WHATSAPP_URL = "https://wa.me/447578930408"
-const CALENDAR_LINK = process.env.NEXT_PUBLIC_CALENDAR_LINK ?? "#[CALENDAR_LINK]"
+const CALENDAR_LINK = process.env.NEXT_PUBLIC_CALENDAR_LINK ?? "https://cal.eu/logistudios"
 
 export default function ContactPage() {
   return (
@@ -54,7 +54,7 @@ export default function ContactPage() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col gap-4 rounded-2xl border border-[--ls-border] p-6 bg-[--ls-bg-secondary] transition-all duration-300 hover:border-[#25D366]/40 hover:shadow-[0_0_30px_rgba(37,211,102,0.1)] h-full"
+              className="group flex flex-col gap-4 rounded-2xl border border-[--ls-border] p-6 bg-[--ls-bg-secondary] transition-all duration-300 hover:border-[--ls-accent]/40 hover:shadow-[0_0_30px_var(--ls-accent-glow)] h-full"
             >
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
@@ -112,7 +112,7 @@ export default function ContactPage() {
 
           {/* Email form */}
           <StaggerItem>
-            <div className="flex flex-col gap-4 rounded-2xl border border-[--ls-border] p-6 bg-[--ls-bg-secondary] h-full">
+            <div className="flex flex-col gap-4 rounded-2xl border border-[--ls-border] p-6 bg-[--ls-bg-secondary] transition-all duration-300 hover:border-[--ls-accent]/40 hover:shadow-[0_0_30px_var(--ls-accent-glow)] h-full">
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
                 style={{ background: "rgba(161,161,168,0.1)" }}

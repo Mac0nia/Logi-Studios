@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import { Container } from "@/components/ui/section"
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/ui/motion"
 import { buttonVariants } from "@/components/ui/button"
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: { url: "https://logistudios.co.uk/about" },
 }
 
-const CALENDAR_LINK = "#[CALENDAR_LINK]"
+const CALENDAR_LINK = "https://cal.eu/logistudios"
 const WHATSAPP_URL = "https://wa.me/447578930408"
 
 export default function AboutPage() {
@@ -148,19 +149,22 @@ export default function AboutPage() {
 
           </StaggerContainer>
 
-          {/* Photo placeholder */}
+          {/* Founder photo */}
           <FadeUp delay={0.2} className="lg:sticky lg:top-28 lg:self-start">
-            <div
-              className="rounded-2xl border border-[--ls-border] overflow-hidden aspect-[3/4] flex items-end p-6"
-              style={{ background: "var(--ls-bg-secondary)" }}
-            >
-              {/* TODO: Replace with <Image> once founder photo is available */}
-              <div className="w-full h-full absolute inset-0 flex items-center justify-center">
-                <p className="font-mono text-xs text-[--ls-text-muted] text-center px-4">
-                  [Founder photo — add before launch]
-                </p>
-              </div>
-              <div className="relative z-10">
+            <div className="rounded-2xl border border-[--ls-border] overflow-hidden aspect-[3/4] relative flex items-end p-6">
+              <Image
+                src="/gianluca.jpg"
+                alt="Gianluca Galli — founder of Logi Studios, East London"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 1024px) 100vw, 360px"
+                priority
+              />
+              {/* Name overlay */}
+              <div
+                className="relative z-10 w-full rounded-xl p-4"
+                style={{ background: "linear-gradient(to top, rgba(10,10,11,0.85) 0%, transparent 100%)" }}
+              >
                 <p
                   className="text-[--ls-text-primary] font-semibold"
                   style={{ fontFamily: "var(--font-display)" }}
