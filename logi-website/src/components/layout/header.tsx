@@ -122,24 +122,15 @@ export function Header() {
       {/* Mobile floating dock menu */}
       <AnimatePresence>
         {menuOpen && (
-          <>
-            {/* Backdrop blur overlay */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm md:hidden"
-              onClick={() => setMenuOpen(false)}
-            />
+          <div className="fixed inset-0 z-40 md:hidden" onClick={() => setMenuOpen(false)}>
             {/* Floating dock */}
             <motion.div
               key="mobile-menu"
-              initial={{ opacity: 0, y: -16, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -16, scale: 0.95 }}
-              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed top-20 left-4 right-4 z-50 md:hidden"
+              initial={{ y: -12, scale: 0.97 }}
+              animate={{ y: 0, scale: 1, transition: { type: "spring", stiffness: 260, damping: 25 } }}
+              exit={{ y: -6, scale: 0.98, transition: { type: "spring", stiffness: 260, damping: 25 } }}
+              className="absolute top-20 left-4 right-4 z-50"
+              onClick={(e) => e.stopPropagation()}
             >
               <div className="mx-auto max-w-sm bg-[--ls-bg-secondary]/95 backdrop-blur-xl border border-[--ls-border] rounded-3xl shadow-2xl shadow-black/50 overflow-hidden">
                 <nav
@@ -197,7 +188,7 @@ export function Header() {
                 </div>
               </div>
             </motion.div>
-          </>
+          </div>
         )}
       </AnimatePresence>
     </>
