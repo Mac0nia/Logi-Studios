@@ -70,7 +70,7 @@ export function Hero() {
             <HeroEntrance order={2}>
               <p className="text-lg text-[--ls-text-secondary] leading-relaxed max-w-lg">
                 We build it free. You pay{" "}
-                <span className="text-[--ls-text-primary] font-medium">£400</span> only when
+                <span className="text-[--ls-text-primary] font-medium">£400 </span> only when
                 you&apos;re happy. Then{" "}
                 <span className="text-[--ls-text-primary] font-medium">£49/month</span> keeps
                 your phone ringing.
